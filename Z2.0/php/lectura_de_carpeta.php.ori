@@ -1,0 +1,12 @@
+<?php
+$dir = "../tracks";    //Especifica el directorio a leer
+$rep = opendir($dir); //Abre el directorio
+
+//Lee los archivos contenidos en el directorio: readdir recibe como parametro el directorio abierto
+while ($arc = readdir($rep)) { 
+	echo $arc."%"; //Imprime cadena con los nombres de los archivos (separados por "%")
+}
+
+closedir($rep);       //Cierra el directorio
+clearstatcache();     //Limpia la caché de estado de un archivo
+?> 

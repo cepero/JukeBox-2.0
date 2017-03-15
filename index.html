@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Documento sin título</title>
+<script type="text/javascript" src="../Z2.0/js/tools/jquery-2.1.0.js"></script>
+<style type="text/css">
+
+html{background-color:#2F4F4F;
+	height:99%;
+	width:100%;
+	overflow:none;
+}
+
+body{height:99%;
+	 width:100%;	
+	overflow:none;
+}
+
+#todo{height:99%;
+	  width:110%;
+	  /*overflow:scroll;*/
+	  overflow:none;
+}
+
+#hacia_la_izquierda{height:10%;
+					width:5%;
+					/*border:solid #CCC;*/
+					float:left;
+					position:absolute;
+					left:0%;
+					top:40%;
+					z-index:1;
+					border-radius:10%;
+					
+}
+
+
+
+#musica {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+
+	background-color: #F71515;
+}
+
+#redes_sociales {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+	
+	background: #00AEB1;
+}
+
+#chat {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+	background: #FF8900;
+}
+
+#internet {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+	
+	background: #0AC919	;
+}
+
+#tpv {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+	
+	background: #C90A96;
+}
+
+#buzon_sugerencias {position:relative;
+		   float:left;
+		   width: 15%;
+		   height: 101%;
+		   -webkit-transform: skew(10deg);
+	       -moz-transform: skew(10deg);
+	       -o-transform: skew(10deg);
+	
+	background: #FFF62E;
+}
+
+#hacia_la_derecha{height:10%;
+				  width:5%;
+				  /*border:solid #CCC;*/
+			      float:left;
+				  position:absolute;
+				  right:0%;
+				  top:40%;
+				  z-index:1;
+				  border-radius:10%;
+}
+
+.categoria img, .bloqueado img{height:20%;
+	    width:70%;
+		position:relative;
+		top:35%;
+		left:10%;
+		-webkit-transform: skew(-10deg);
+	 	-moz-transform: skew(-10deg);
+		-o-transform: skew(-10deg);
+		
+}
+
+.categoria p, .bloqueado p{
+		position:relative;
+		top:35%;
+
+		-webkit-transform: skew(-10deg);
+	 	-moz-transform: skew(-10deg);
+		-o-transform: skew(-10deg);
+}
+
+.categoria p, .bloqueado p{font-family:"Times New Roman", Times, serif;
+		font-size:200%;
+		color:#FFF;
+		/*border-style:solid; 
+		border-color:#FFF;*/
+		text-align:center;
+		-webkit-transform: skew(-10deg);
+	 	-moz-transform: skew(-10deg);
+		-o-transform: skew(-10deg);
+}
+
+
+
+				
+
+</style>
+
+
+<script>
+	$(document).ready(function() {
+		
+		//Al clicar en estos dos divs se desplaza el carrusel
+		$('#hacia_la_izquierda').click(function(){
+			$('#todo').prepend($('.categoria:last'));
+		});
+			
+		$('#hacia_la_derecha').click(function(){
+			$('#todo').append($('.categoria:first'));
+		});
+		
+		
+		
+		//Al pulsar en uno de los divs este crece y se hace más ancho
+		$( ".categoria" ).click(function() {
+			if(!($(this).hasClass("bloqueado"))){ //Haz la animación si no estas bloqueado
+							
+				$(this).removeClass('categoria');
+				
+				//Los divs no pulsados ocultan su imagen deprisa
+				$('.categoria img').hide(2000);
+		
+				
+				//El div pulsado oculta su imagen más despacio
+				$('img').hide(4000);
+				
+				
+				
+				//Animación de crecimiento del div pulsado
+				$(".categoria").animate({ 
+					width: "0%"
+				}, {
+					queue: false,
+					duration:1500
+				})
+				
+				
+				$( this ).animate({
+					width: "100%"
+				}, {
+					queue: false,
+					duration: 2000,
+					
+				})
+				
+			}
+			
+			
+				 
+    		
+		});
+		
+		
+		//Al pulsar en el div de la musica redirecciona despues de 4 segundos a la pagina del loader.
+		$("#musica").click(function(){
+			if(!($("#musica").hasClass("bloqueado"))){ //Redirecciona si no esta bloqueado
+				window.setTimeout(function(){
+       			 window.location.href = "./loader.html";
+    		}, 4000);
+			}
+			
+		});
+		
+		
+		//Miramos a ver que categorias tenemos disponibles y actuamos en consecuencia MIRAR A VER BIEN LOS COLORES QUE VAYAN BIEN
+		if($("#musica").hasClass("bloqueado")){
+			$("#musica").css("background","#9B5353");	
+			$("#musica img").attr("src", "./img/candado.gif");	
+		}
+		
+		if($("#redes_sociales").hasClass("bloqueado")){
+			$("#redes_sociales").css("background","#53629B");	
+			$("#redes_sociales img").attr("src", "./img/candado.gif");	
+		}
+		
+		if($("#chat").hasClass("bloqueado")){
+			$("#chat").css("background","#9B7853");	
+			$("#chat img").attr("src", "./img/candado.gif");	
+		}
+		
+		if($("#internet").hasClass("bloqueado")){
+			$("#internet").css("background","#649B53");	
+			$("#internet img").attr("src", "./img/candado.gif");
+		}
+		
+		if($("#tpv").hasClass("bloqueado")){
+			$("#tpv").css("background","#90539B");	
+			$("#tpv img").attr("src", "./img/candado.gif");
+		}
+		
+		if($("#buzon_sugerencias").hasClass("bloqueado")){
+			$("#buzon_sugerencias").css("background","#9B9553");	
+			$("#buzon_sugerencias img").attr("src", "./img/candado.gif");	
+		}
+		
+		
+        
+    });
+	
+	</script>
+</head>
+
+<body>
+<div id=todo>
+	<div id=hacia_la_izquierda><img src="./img/Flecha izquierda.gif" height=100% width="100%"/></div>
+    <div id=musica class="categoria"><img src="./img/icono musica.gif"/><p>M&uacute;sica</p></div>
+    <div id=redes_sociales class="categoria"><img src="./img/icono redes.gif"/><p>Redes Sociales</p></div>
+    <div id=chat class="categoria"><img src="./img/icono chat.gif"/><p>Chat</p></div>
+    <div id=internet class="categoria"><img src="./img/icono internet.gif"/><p>Acceso a Internet</p></div>
+    <div id=tpv class="categoria"><img src="./img/icono tpv.gif"/><p>TPV</p></div>
+    <div id=buzon_sugerencias class="categoria"><img src="./img/icono sugerencias.gif"/><p>Buz&oacute;n de Sugerencias</p></div>
+    <div id=hacia_la_derecha><img src="./img/Flecha derecha.gif" height=100% width="100%"/></div>
+</div>
+
+
+</body>
+</html>

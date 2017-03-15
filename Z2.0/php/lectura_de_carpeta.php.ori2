@@ -1,0 +1,19 @@
+<?php 
+$directorio = '../tracks'; 
+function ordenar($a,$b){ 
+	global $directorio; 
+	$a = filemtime($directorio.$a); 
+	$b = filemtime($directorio.$b); 
+	if ($a == $b) { 
+		return 0; 
+	} 
+		return ($a < $b) ? -1 : 1; 
+	} 
+
+$dir=opendir($directorio); 
+while($arch=readdir($dir))$ars[]=$arch; 
+
+closedir($dir); 
+usort($ars, "ordenar"); 
+foreach($ars as $ar)echo "$ar.%"; 
+?> 

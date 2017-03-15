@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/* CSS Document */
+body
+{
+    font-family: Verdana, helvetica, arial, futura, sans-serif;
+    color:#991C00;
+    background-color:#FFFCDB; 
+}
+
+h1
+{
+    font-family: "Arial Black", futura, sans-serif;
+    color:#E09A25;
+    background-color:#262B30;
+    text-align: center;
+}

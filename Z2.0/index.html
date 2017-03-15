@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es"> 
+	<head>
+		<title>Reproductor en HTML5</title>
+		<meta charset="utf-8"/>
+		<link href='http://fonts.googleapis.com/css?family=Viga|Titan+One|Passion+One|Cabin+Condensed:700' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!-- <script type="text/javascript" src="js/tools/jquery-1.7.2.min.js"></script> -->
+		<script src="js/tools/jquery-2.1.0.js"></script>
+		<script src="js/tools/jquery.tools.min.js"></script>
+		<script src="js/reproductorMP3.js"></script>
+	</head>
+
+	<body>
+		<header>
+			<h1>"..:JukeBox 2.0:.."</h1>
+		</header>
+                
+    <section id="ReproductorMP3">
+			<section id="Reproductor">
+				<section id="TituloEnReproduccion">
+					<span>Titulo de la Cancion</span>
+				</section>
+
+				<section id="ControlesReproduccion">
+					<div id="ControlesPlayPauseStop">
+						<div id="ControlPlayStop"></div>
+						<div id="ControlStop"></div>
+					</div>
+                    <div id="BarraProgreso">
+						<div id="BPTpoCargado"></div>
+						<div id="BPTpoReproducido"></div>
+					</div>
+				</section>
+
+				<section id="ControlesVolumenTiempo">
+					<input type="range" min="0" max="1" step="0.1" value="0.5"/>
+					<div id="TpoStatus">
+						<time id="TpoReproducido">00:00</time>
+						<span>/</span>
+						<time id="TpoTotal">00:00</time>
+					</div>
+				</section>
+			</section>
+
+			<section id="Lista">
+				<section id="Canciones">
+					<article class="track" data-source="tracks/correct">
+						<span class="TituloCancion">correct</span>
+					</article>
+					<article class="track" data-source="tracks/incorrect">
+						<span class="TituloCancion">incorrect</span>
+					</article>
+					<article class="track" data-source="tracks/mc1">
+						<span class="TituloCancion">mc1</span>
+					</article>
+				</section>
+
+				<section id="ControlLista">
+					<span>&#x25B2;</span>
+				</section>
+
+			</section>
+		</section>
+
+		<div id="TpoActual">
+			<time>00:00</time>
+		</div>
+	</body>
+</html>
